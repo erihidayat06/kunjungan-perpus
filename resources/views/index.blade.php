@@ -11,42 +11,54 @@
                         <img src="/assets/img/logo-perpus.png" width="70%" alt="">
                     </div>
                     <div class="carousel-item" data-bs-interval="7000">
-                        <h5><span class="fw-bold">TOP 5</span> Kunjungan Pepustakaan Terbanyak</h5>
-                        <h5> Tahun ajaran {{ $s1 }} - {{ $s2 }}</h5>
-                        <table class="table table-hover text-start">
-                            <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Kelas</th>
-                                <th>Jumlah Kunjungan</th>
-                            </tr>
+                        <h5> <img src="/assets/img/juara.png" class="align-items-center" alt="" width="10%"><span
+                                class="fw-bold">TOP
+                                5</span> Kunjungan Pepustakaan Terbanyak</h5>
 
-                            @php
-                                $i = 0;
-                            @endphp
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="mt-2"> Tahun ajaran <strong>{{ $s1 }} -
+                                        {{ $s2 }}</strong> </h5>
+                                <table class="table table-hover text-start">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th>
+                                        <th>Kelas</th>
+                                        <th class="text-center">Jumlah Kunjungan</th>
+                                    </tr>
 
-                            @foreach ($peringkats->shift(5) as $peringkat)
-                                <tr>
-                                    <td>
-                                        @php
-                                            $i = $i + 1;
-                                        @endphp
-                                        @if ($i == 1)
-                                            <img src="/assets/img/peringkat1.png" alt="" width="20px">
-                                        @elseif ($i == 2)
-                                            <img src="/assets/img/peringkat2.png" alt="" width="20px">
-                                        @elseif ($i == 3)
-                                            <img src="/assets/img/peringkat3.png" alt="" width="20px">
-                                        @else
-                                            {{ $i }}
-                                        @endif
-                                    </td>
-                                    <td>{{ $peringkat['nama'] }}</td>
-                                    <td>{{ $peringkat['kelas'] }}</td>
-                                    <td>{{ $peringkat['jumlah'] }}</td>
-                                </tr>
-                            @endforeach
-                        </table>
+                                    @php
+                                        $i = 0;
+                                    @endphp
+
+                                    @foreach ($peringkats->shift(5) as $peringkat)
+                                        <tr>
+                                            <th>
+                                                @php
+                                                    $i = $i + 1;
+                                                @endphp
+                                                @if ($i == 1)
+                                                    <img src="/assets/img/peringkat1.png" alt="" width="20px">
+                                                @elseif ($i == 2)
+                                                    <img src="/assets/img/peringkat2.png" alt="" width="20px">
+                                                @elseif ($i == 3)
+                                                    <img src="/assets/img/peringkat3.png" alt="" width="20px">
+                                                @else
+                                                    {{ $i }}
+                                                @endif
+                                            </th>
+                                            <td>{{ $peringkat['nama'] }}</td>
+                                            <td>{{ $peringkat['kelas'] }}</td>
+                                            <td class="text-center">{{ $peringkat['jumlah'] }}</td>
+                                        </tr>
+                                    @endforeach
+                                </table>
+                            </div>
+                        </div>
+
+
+                        <div class="text-danger">*Note : Isi Nama Kalian Dengan Benar Agar Sistem Bisa Menghitungnya
+                        </div>
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
