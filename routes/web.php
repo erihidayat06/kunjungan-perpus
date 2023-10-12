@@ -23,25 +23,7 @@ use App\Http\Controllers\StatistikController;
 |
 */
 
-Route::get('/', function () {
-
-
-
-    $dari =  '2023-08-01';
-    $sampai = '2024-08-01';
-
-    $dataKunjungan = Kunjungan::filtertanggal(['dari' => $dari,'sampai' => $sampai])->get()->unique('nama');
-
-    foreach ($dataKunjungan as $kunjungan) {
-        $data[] = ['nama' => $kunjungan->nama,'kelas' => $kunjungan->ruangan->nama_kelas, 'jumlah' => count(Kunjungan::where('nama', $kunjungan->nama)->get())];
-    }
-
-    return view('index',[
-        'kelass' => Ruangan::get(),
-        'kunjungans' => Kunjungan::get(),
-        'peringkats' => collect($data)->sortByDesc('jumlah')
-    ]);
-});
+Route::get('/', [HomeController::class,'index']);
 
 Route::get('/dashboard', [DashboardController::class,'index'])->middleware('auth');
 Route::get('/dashboard/statistik', [StatistikController::class,'index'])->middleware('auth');

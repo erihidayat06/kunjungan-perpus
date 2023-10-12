@@ -12,7 +12,7 @@
                     </div>
                     <div class="carousel-item" data-bs-interval="7000">
                         <h5><span class="fw-bold">TOP 5</span> Kunjungan Pepustakaan Terbanyak</h5>
-                        <h5> Tahun ajaran 2023 - 2024</h5>
+                        <h5> Tahun ajaran {{ $s1 }} - {{ $s2 }}</h5>
                         <table class="table table-hover text-start">
                             <tr>
                                 <th>No</th>
