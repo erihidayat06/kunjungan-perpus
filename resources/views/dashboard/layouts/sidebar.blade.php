@@ -57,7 +57,7 @@
 
          <li class="nav-item">
              <a class="nav-link {{ Request::is('dashboard/statistik') ? '' : 'collapsed' }}"
-                 href="/dashboard/statistik">
+                 href="/dashboard/statistik?dari={{ date('Y') }}-08-01&sampai={{ date('Y', strtotime('+1 year')) }}-08-01">
                  <i class="bi bi-bar-chart-line"></i>
                  <span>Analisa</span>
              </a>

@@ -1,6 +1,36 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
+    <div class="dropdown mb-4">
+        <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+            @if (request('dari'))
+                {{ date('Y', strtotime(request('dari'))) }} - {{ date('Y', strtotime(request('sampai'))) }}
+            @else
+                Tahun Ajaran
+            @endif
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/dashboard/statistik">Semua Tahun Ajaran</a></li>
+            @foreach ($ajarans as $tahun)
+                <li><a class="dropdown-item"
+                        href="/dashboard/statistik?dari={{ $tahun['dari'] }}&sampai={{ $tahun['sampai'] }}">{{ $tahun['d'] }}
+                        - {{ $tahun['s'] }}</a></li>
+            @endforeach
+
+        </ul>
+    </div>
+
+    <div class="row text-center">
+        <h3>
+            @if (request('dari'))
+                Tahun Ajaran {{ date('Y', strtotime(request('dari'))) }} - {{ date('Y', strtotime(request('sampai'))) }}
+            @else
+                Seluruh Data
+            @endif
+        </h3>
+    </div>
+
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
