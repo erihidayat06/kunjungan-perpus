@@ -22,22 +22,22 @@ class HomeController extends Controller
         if (date('m-d') >= date('m-d', strtotime('0000-07-01')) &&  date('m-d') <= date('m-d', strtotime('0000-12-29'))) {
             $s1 = date('Y');
             $s2 = date('Y', strtotime('+1 year'));
-        }elseif(date('m-d') >= date('m-d', strtotime('0000-12-30')) &&  date('m-d') <= date('m-d', strtotime('0000-06-30'))){
+        } elseif (date('m-d') >= date('m-d', strtotime('0000-12-30')) &&  date('m-d') <= date('m-d', strtotime('0000-06-30'))) {
             $s1 = date('Y', strtotime('-1 year'));
             $s2 = date('Y');
         }
 
 
-        $dari =  "$s1-08-01";
-        $sampai = "$s2-08-01";
+        $dari =  "$s1-07-01";
+        $sampai = "$s2-07-01";
 
-        $dataKunjungan = Kunjungan::filtertanggal(['dari' => $dari,'sampai' => $sampai])->get()->unique('nama');
+        $dataKunjungan = Kunjungan::filtertanggal(['dari' => $dari, 'sampai' => $sampai])->get()->unique('nama');
 
         foreach ($dataKunjungan as $kunjungan) {
-            $data[] = ['nama' => $kunjungan->nama,'kelas' => $kunjungan->ruangan->nama_kelas, 'jumlah' => count(Kunjungan::where('nama', $kunjungan->nama)->get())];
+            $data[] = ['nama' => $kunjungan->nama, 'kelas' => $kunjungan->ruangan->nama_kelas, 'jumlah' => count(Kunjungan::where('nama', $kunjungan->nama)->get())];
         }
 
-        return view('index',[
+        return view('index', [
             's1' => $s1,
             's2' => $s2,
             'kelass' => Ruangan::get(),

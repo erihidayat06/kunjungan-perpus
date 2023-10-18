@@ -19,8 +19,8 @@ class StatistikController extends Controller
             $t2 = $i - 2;
             $d = date('Y', strtotime("-$t1 year"));
             $s = date('Y', strtotime("-$t2 year"));
-            $dr =  date('Y', strtotime("-$t1 year")) . "-08-01";
-            $sp = date('Y', strtotime("-$t2 year")) . "-08-01";
+            $dr =  date('Y', strtotime("-$t1 year")) . "-07-01";
+            $sp = date('Y', strtotime("-$t2 year")) . "-07-01";
 
             $ajaran[] = ['d' => $d, 's' => $s, 'dari' => $dr, 'sampai' => $sp];
         }
