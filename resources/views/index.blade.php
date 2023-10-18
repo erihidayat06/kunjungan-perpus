@@ -74,7 +74,8 @@
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+
+                {{-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
@@ -83,7 +84,7 @@
                     data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
-                </button>
+                </button> --}}
             </div>
             {{-- <h3 class="card-title mb-2">Selamat Datang Di Perpustakaan</h3>
             <h3 class="card-title mb-3 fw-bold  d-none d-lg-block">MTs Negeri 1 Tegal</h3>

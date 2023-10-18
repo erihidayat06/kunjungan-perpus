@@ -7,6 +7,5 @@
         <div class="d-flex">
             <a href="/dashboard" class="text-white"><i class="bi bi-person-circle fs-5"></i></a>
         </div>
-
     </div>
 </nav>

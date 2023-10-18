@@ -17,9 +17,9 @@
 </head>
 
 <body>
-    @include('layouts.nav')
     @include('sweetalert::alert')
     <main id="main" class="main">
+        @include('layouts.nav')
         <div class="container">
             @yield('container')
         </div>
