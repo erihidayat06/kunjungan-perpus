@@ -28,6 +28,72 @@
             </div><!-- End Customers Card -->
 
         </div>
+        <hr>
+        <div class="pagetitle">
+            <h1>Total Kujungan perkelas</h1>
+        </div>
+        <div class="row row-cols-1 row-cols-lg-3">
+            <!-- Customers Card -->
+            <div class="col">
+                <div class="card info-card revenue-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Pengujung <span>| Kelas 7</span></h5>
+
+                        <div class="d-flex align-items-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h6>{{ $kls7 }}</h6>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customers Card -->
+            <div class="col">
+                <div class="card info-card revenue-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Pengujung <span>| Kelas 8</span></h5>
+
+                        <div class="d-flex align-items-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h6>{{ $kls8 }}</h6>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Customers Card -->
+            <div class="col">
+                <div class="card info-card revenue-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Pengujung <span>| Kelas 9</span></h5>
+
+                        <div class="d-flex align-items-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h6>{{ $kls9 }}</h6>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
 
         <div class="row">
             <div class="pagetitle">

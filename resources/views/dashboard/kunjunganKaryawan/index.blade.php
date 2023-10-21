@@ -18,14 +18,14 @@
                                 <h6>Filter</h6>
                             </li>
 
-                            <li><a class="dropdown-item" href="/dashboard/kunjungan">All</a></li>
+                            <li><a class="dropdown-item" href="/dashboard/karyawan">All</a></li>
                             <li><a class="dropdown-item"
-                                    href="/dashboard/kunjungan?filter={{ date('Y-m-d') }}&waktu=Hari Ini">Hari</a></li>
+                                    href="/dashboard/karyawan?filter={{ date('Y-m-d') }}&waktu=Hari Ini">Hari</a></li>
                             <li><a class="dropdown-item"
-                                    href="/dashboard/kunjungan?filter={{ date('Y-m') }}&waktu=Bulan Ini">Bulan Ini</a>
+                                    href="/dashboard/karyawan?filter={{ date('Y-m') }}&waktu=Bulan Ini">Bulan Ini</a>
                             </li>
                             <li><a class="dropdown-item"
-                                    href="/dashboard/kunjungan?filter={{ date('Y') }}&waktu=Tahun Ini">Tahun Ini</a>
+                                    href="/dashboard/karyawan?filter={{ date('Y') }}&waktu=Tahun Ini">Tahun Ini</a>
                             </li>
                         </ul>
                     </div>

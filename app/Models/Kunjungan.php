@@ -17,6 +17,16 @@ class Kunjungan extends Model
         return $this->belongsTo(Ruangan::class);
     }
 
+
+    // Scope
+    public function scopeKelas($query, array $filters)
+    {
+        $query->when($filters['kelas'] ?? false, fn ($query, $kelas) => $query->whereHas(
+            'ruangan',
+            fn ($query) => $query->where('kelas', $kelas)
+        ));
+    }
+
     public function scopeBaca($query)
     {
         $query->where('tujuan', 'baca');
@@ -44,16 +54,15 @@ class Kunjungan extends Model
         $query->where('created_at', 'like', '%' . date('Y-m-d') . '%');
     }
 
-    public function scopeFiltertanggal($query,Array $filters){
+    public function scopeFiltertanggal($query, array $filters)
+    {
 
-        $query->when($filters['dari'] ?? false, function($query, $dari){
-            return $query->where('updated_at', ">=" , $dari);
+        $query->when($filters['dari'] ?? false, function ($query, $dari) {
+            return $query->where('updated_at', ">=", $dari);
         });
 
-        $query->when($filters['sampai'] ?? false, function($query, $sampai){
-            return $query->where('updated_at', "<=" , date('Y-m-d', strtotime('+1 days', strtotime($sampai))));
+        $query->when($filters['sampai'] ?? false, function ($query, $sampai) {
+            return $query->where('updated_at', "<=", date('Y-m-d', strtotime('+1 days', strtotime($sampai))));
         });
-
     }
-
 }

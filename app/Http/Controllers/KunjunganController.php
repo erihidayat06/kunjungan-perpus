@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-Use Alert;
+use Alert;
 use App\Models\Kunjungan;
 use Illuminate\Http\Request;
 use App\Exports\KunjunganExport;
@@ -16,14 +16,22 @@ class KunjunganController extends Controller
     public function index()
     {
 
-     return view('dashboard.kunjungan.index',[
-        'kunjungans' => Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari','sampai']))->latest()->get(),
-        'baca' => Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari','sampai']))->baca()->get()->sum('jumlah'),
-        'pinjam' => Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari','sampai']))->pinjam()->get()->sum('jumlah'),
-        'kembali' => Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari','sampai']))->kembali()->get()->sum('jumlah'),
-        'tugas' => Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari','sampai']))->tugas()->get()->sum('jumlah')
 
-     ]);
+        $kls7 = Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari', 'sampai']))->kelas(['kelas' => '7'])->get()->sum('jumlah');
+        $kls8 = Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari', 'sampai']))->kelas(['kelas' => '8'])->get()->sum('jumlah');
+        $kls9 = Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari', 'sampai']))->kelas(['kelas' => '9'])->get()->sum('jumlah');
+
+        return view('dashboard.kunjungan.index', [
+            'kls7' => $kls7,
+            'kls8' => $kls8,
+            'kls9' => $kls9,
+            'kunjungans' => Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari', 'sampai']))->latest()->get(),
+            'baca' => Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari', 'sampai']))->baca()->get()->sum('jumlah'),
+            'pinjam' => Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari', 'sampai']))->pinjam()->get()->sum('jumlah'),
+            'kembali' => Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari', 'sampai']))->kembali()->get()->sum('jumlah'),
+            'tugas' => Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari', 'sampai']))->tugas()->get()->sum('jumlah')
+
+        ]);
     }
 
     /**
@@ -39,32 +47,32 @@ class KunjunganController extends Controller
      */
     public function store(Request $request)
     {
-       $hari_ini = Kunjungan::where('created_at', 'like', '%' . date('Y-m-d') . '%')->get();
+        $hari_ini = Kunjungan::where('created_at', 'like', '%' . date('Y-m-d') . '%')->get();
 
-       foreach ($hari_ini as $siswa) {
-         if ($siswa->nama == strtolower($request->nama) && $siswa->ruangan_id == $request->ruangan_id) {
-            return redirect()->back()->with('error',"Maaf, Kamu Sudah Berkunjung Hari Ini !!!");
-         }
-       }
-
-       $validasiData = $request->validate([
-        'nama' => 'required',
-        'ruangan_id' => 'required',
-        'tujuan' => 'required',
-        'jumlah' => 'required'
-       ]);
-
-       $validasiData['nama'] = strtolower($request->nama);
-
-       if($validasiData['tujuan'] == 'Tujuan'){
-        return redirect()->back()->with('error', "Mohon isi Tujuan");
-        }elseif($validasiData['ruangan_id'] == 'Kelas'){
-        return redirect()->back()->with('error', "Mohon isi Kelas");
+        foreach ($hari_ini as $siswa) {
+            if ($siswa->nama == strtolower($request->nama) && $siswa->ruangan_id == $request->ruangan_id) {
+                return redirect()->back()->with('error', "Maaf, Kamu Sudah Berkunjung Hari Ini !!!");
+            }
         }
 
-       Kunjungan::create($validasiData);
+        $validasiData = $request->validate([
+            'nama' => 'required',
+            'ruangan_id' => 'required',
+            'tujuan' => 'required',
+            'jumlah' => 'required'
+        ]);
 
-       return redirect()->back()->with('success',"Terimakasih Sudah Berkunjung $request->nama");
+        $validasiData['nama'] = strtolower($request->nama);
+
+        if ($validasiData['tujuan'] == 'Tujuan') {
+            return redirect()->back()->with('error', "Mohon isi Tujuan");
+        } elseif ($validasiData['ruangan_id'] == 'Kelas') {
+            return redirect()->back()->with('error', "Mohon isi Kelas");
+        }
+
+        Kunjungan::create($validasiData);
+
+        return redirect()->back()->with('success', "Terimakasih Sudah Berkunjung $request->nama");
     }
 
     /**
@@ -96,7 +104,7 @@ class KunjunganController extends Controller
      */
     public function destroy(Kunjungan $kunjungan)
     {
-        Kunjungan::where('id',$kunjungan->id)->delete();
+        Kunjungan::where('id', $kunjungan->id)->delete();
 
         return redirect()->back();
     }

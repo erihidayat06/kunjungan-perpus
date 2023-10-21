@@ -61,6 +61,9 @@
                                 </div>
                             </form>
                         </div>
+                        <div class="pagetitle">
+                            <h1>Total Seluruh Kujungan</h1>
+                        </div>
 
                         <div class="col-xxl-4 col-xl-12">
                             <div class="card info-card sales-card">
@@ -82,6 +85,10 @@
                             </div>
 
                         </div><!-- End Customers Card -->
+
+                        <div class="pagetitle">
+                            <h1>Total Kujungan Perkategori</h1>
+                        </div>
 
                         <div class="row">
                             <div class="col-xxl-3 col-xl-12">
@@ -166,15 +173,86 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="pagetitle">
+                                <h1>Total Kujungan perkelas</h1>
+                            </div>
+                            <div class="row row-cols-1 row-cols-lg-3">
+                                <!-- Customers Card -->
+                                <div class="col">
+                                    <div class="card info-card revenue-card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Pengujung <span>| Kelas 7</span></h5>
+
+                                            <div class="d-flex align-items-center">
+                                                <div
+                                                    class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-people"></i>
+                                                </div>
+                                                <div class="ps-3">
+                                                    <h6>{{ $kls7 }}</h6>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Customers Card -->
+                                <div class="col">
+                                    <div class="card info-card revenue-card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Pengujung <span>| Kelas 8</span></h5>
+
+                                            <div class="d-flex align-items-center">
+                                                <div
+                                                    class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-people"></i>
+                                                </div>
+                                                <div class="ps-3">
+                                                    <h6>{{ $kls8 }}</h6>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Customers Card -->
+                                <div class="col">
+                                    <div class="card info-card revenue-card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Pengujung <span>| Kelas 9</span></h5>
+
+                                            <div class="d-flex align-items-center">
+                                                <div
+                                                    class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-people"></i>
+                                                </div>
+                                                <div class="ps-3">
+                                                    <h6>{{ $kls9 }}</h6>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <hr>
 
                         <!-- Table with stripped rows -->
+                        <div class="pagetitle">
+                            <h1>Data Kunjungan</h1>
+                        </div>
                         <table class="table datatable">
                             <thead>
                                 <a href="/dashboard/export?filter={{ request('filter') }}"
-                                    class="btn btn-sm btn-success"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a>
+                                    class="btn btn-sm btn-success"><i class="bi bi-file-earmark-spreadsheet"></i>
+                                    Excel</a>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Nama</th>

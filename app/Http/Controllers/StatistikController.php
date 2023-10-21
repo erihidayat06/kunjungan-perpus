@@ -42,6 +42,19 @@ class StatistikController extends Controller
             array_push($t, Kunjungan::filtertanggal(request(['dari', 'sampai']))->whereMonth('created_at', "1$i")->tugas()->get()->sum('jumlah'));
         }
 
+        // Kunjungan Berdasarkan Kelas
+        for ($i = 1; $i < 10; $i++) {
+            $kls7[] = Kunjungan::filtertanggal(request(['dari', 'sampai']))->whereMonth('created_at', "0$i")->kelas(['kelas' => '7'])->get()->sum('jumlah');
+            $kls8[] = Kunjungan::filtertanggal(request(['dari', 'sampai']))->whereMonth('created_at', "0$i")->kelas(['kelas' => '8'])->get()->sum('jumlah');
+            $kls9[] = Kunjungan::filtertanggal(request(['dari', 'sampai']))->whereMonth('created_at', "0$i")->kelas(['kelas' => '9'])->get()->sum('jumlah');
+        }
+
+        for ($i = 0; $i < 3; $i++) {
+            array_push($kls7, Kunjungan::filtertanggal(request(['dari', 'sampai']))->whereMonth('created_at', "1$i")->kelas(['kelas' => '7'])->get()->sum('jumlah'));
+            array_push($kls8, Kunjungan::filtertanggal(request(['dari', 'sampai']))->whereMonth('created_at', "1$i")->kelas(['kelas' => '8'])->get()->sum('jumlah'));
+            array_push($kls9, Kunjungan::filtertanggal(request(['dari', 'sampai']))->whereMonth('created_at', "1$i")->kelas(['kelas' => '9'])->get()->sum('jumlah'));
+        }
+
         $i7 = 0;
         $i8 = 0;
         $i9 = 0;
@@ -85,6 +98,10 @@ class StatistikController extends Controller
 
 
         return view('dashboard.statistik.index', [
+
+            'kls7' => json_encode($kls7),
+            'kls8' => json_encode($kls8),
+            'kls9' => json_encode($kls9),
             'b' => json_encode($b),
             'p' => json_encode($p),
             'k' => json_encode($k),

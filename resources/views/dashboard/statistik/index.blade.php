@@ -106,7 +106,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Grafik Kunjungan Karyawan</h5>
+                <h5 class="card-title">Grafik Kelas</h5>
 
                 <!-- Column Chart -->
                 <div id="grafik-kelas"></div>
@@ -114,6 +114,75 @@
                 <script>
                     document.addEventListener("DOMContentLoaded", () => {
                         new ApexCharts(document.querySelector("#grafik-kelas"), {
+                            series: [{
+                                name: 'VII',
+                                data: {{ $kls7 }}
+                            }, {
+                                name: 'VIII',
+                                data: {{ $kls8 }}
+                            }, {
+                                name: 'IX',
+                                data: {{ $kls9 }}
+                            }, ],
+                            chart: {
+                                type: 'bar',
+                                height: 350
+                            },
+                            plotOptions: {
+                                bar: {
+                                    horizontal: false,
+                                    columnWidth: '55%',
+                                    endingShape: 'rounded'
+                                },
+                            },
+                            dataLabels: {
+                                enabled: false
+                            },
+                            stroke: {
+                                show: true,
+                                width: 2,
+                                colors: ['transparent']
+                            },
+                            xaxis: {
+                                categories: ['jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
+                                    'Nov', 'Des'
+                                ],
+                            },
+                            yaxis: {
+                                title: {
+                                    text: 'Data Kunjungan perkelas'
+                                }
+                            },
+                            fill: {
+                                opacity: 1
+                            },
+                            tooltip: {
+                                y: {
+                                    formatter: function(val) {
+                                        return "jml " + val + "Siswa"
+                                    }
+                                }
+                            }
+                        }).render();
+                    });
+                </script>
+                <!-- End Column Chart -->
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Grafik Kunjungan Karyawan</h5>
+
+                <!-- Column Chart -->
+                <div id="grafik-karyawan"></div>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        new ApexCharts(document.querySelector("#grafik-karyawan"), {
                             series: [{
                                 name: 'Guru',
                                 data: {{ $g }}
@@ -156,7 +225,7 @@
                             tooltip: {
                                 y: {
                                     formatter: function(val) {
-                                        return "jml " + val + " Siswa"
+                                        return "jml " + val + "Karyawan/guru"
                                     }
                                 }
                             }
