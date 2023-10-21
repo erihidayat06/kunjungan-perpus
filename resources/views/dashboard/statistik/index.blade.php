@@ -106,7 +106,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Grafik Kelas</h5>
+                <h5 class="card-title">Grafik Kujungan Perkelas</h5>
 
                 <!-- Column Chart -->
                 <div id="grafik-kelas"></div>

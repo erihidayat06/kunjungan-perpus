@@ -61,6 +61,8 @@
                                 </div>
                             </form>
                         </div>
+
+                        <hr>
                         <div class="pagetitle">
                             <h1>Total Seluruh Kujungan</h1>
                         </div>
@@ -85,6 +87,8 @@
                             </div>
 
                         </div><!-- End Customers Card -->
+
+                        <hr>
 
                         <div class="pagetitle">
                             <h1>Total Kujungan Perkategori</h1>
@@ -173,6 +177,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <hr>
 
                             <div class="pagetitle">
                                 <h1>Total Kujungan perkelas</h1>
