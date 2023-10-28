@@ -12,8 +12,8 @@ class RuanganController extends Controller
      */
     public function index()
     {
-        if (request('kelas')){
-            return view('dashboard.kelas.index',[
+        if (request('kelas')) {
+            return view('dashboard.kelas.index', [
                 'kelass' => Ruangan::where('kelas', request('kelas'))->get()
             ]);
         }
@@ -39,17 +39,17 @@ class RuanganController extends Controller
             'nama_kelas' => 'required'
         ]);
 
-       if ($request->kelas == 7) {
-         $validasiData['nama_kelas'] = 'VII' . ' ' . $request->nama_kelas;
-       }elseif ($request->kelas == 8) {
-        $validasiData['nama_kelas'] = 'VIII' . ' ' . $request->nama_kelas;
-       }elseif ($request->kelas == 9) {
-        $validasiData['nama_kelas'] = 'IX' . ' ' . $request->nama_kelas;
-       }
+        if ($request->kelas == 7) {
+            $validasiData['nama_kelas'] = 'VII' . ' ' . $request->nama_kelas;
+        } elseif ($request->kelas == 8) {
+            $validasiData['nama_kelas'] = 'VIII' . ' ' . $request->nama_kelas;
+        } elseif ($request->kelas == 9) {
+            $validasiData['nama_kelas'] = 'IX' . ' ' . $request->nama_kelas;
+        }
 
-       Ruangan::create($validasiData);
+        Ruangan::create($validasiData);
 
-       return redirect()->back()->with('success',"Berhasil Di Tambahkan");
+        return redirect()->back()->with('success', "Berhasil Di Tambahkan");
     }
 
     /**
@@ -87,6 +87,8 @@ class RuanganController extends Controller
      */
     public function destroy(Ruangan $ruangan)
     {
-        //
+        Ruangan::where('id', $ruangan->id)->delete();
+
+        return redirect()->back()->with('error', 'Data Berhasil di Hapus');
     }
 }

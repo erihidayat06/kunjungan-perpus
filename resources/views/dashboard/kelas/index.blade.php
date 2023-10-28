@@ -39,12 +39,25 @@
                                         <td>{{ $kelas->nama_kelas }}</td>
 
                                         <td>
-                                            <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
-                                                data-bs-target="#edit{{ $kelas->id }}">
-                                                <i class="bi bi-pencil-square"></i>
-                                            </button>
 
-                                            @include('dashboard.kelas.modaledit')
+                                            <div class="d-flex justify-contain-start">
+
+                                                <button type="button" class="btn btn-sm btn-success m-1"
+                                                    data-bs-toggle="modal" data-bs-target="#edit{{ $kelas->id }}">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </button>
+
+                                                @include('dashboard.kelas.modaledit')
+
+                                                <form action="/dashboard/kelas/{{ $kelas->id }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+
+                                                    <button type="submit" class="btn btn-sm btn-danger m-1"
+                                                        onclick="return confirm('Apakah Data Ini Mau di Hapus?')"><i
+                                                            class="bi bi-trash"></i></button>
+                                                </form>
+                                            </div>
 
                                         </td>
                                     </tr>

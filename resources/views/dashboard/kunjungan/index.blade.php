@@ -8,7 +8,6 @@
     <section class="section dashboard">
         <div class="row">
             <div class="col-lg-12">
-
                 <div class="card recent-sales overflow-auto">
                     {{-- Filter --}}
                     <div class="filter">

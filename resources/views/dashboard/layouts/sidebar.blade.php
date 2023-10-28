@@ -63,6 +63,15 @@
              </a>
          </li><!-- End Profile Page Nav -->
 
+         <li class="nav-heading">Buku Induk</li>
+
+         <li class="nav-item">
+             <a class="nav-link {{ Request::is('dashboard/buku-induk') ? '' : 'collapsed' }}"
+                 href="/dashboard/buku-induk">
+                 <i class="bi bi-bar-chart-line"></i>
+                 <span>Buku Induk</span>
+             </a>
+         </li><!-- End Profile Page Nav -->
 
      </ul>
 

@@ -10,11 +10,9 @@ class StatistikController extends Controller
 {
     public function index()
     {
-        $s1 = 0;
-        $s2 = 0;
 
 
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 1; $i < 4; $i++) {
             $t1 = $i - 1;
             $t2 = $i - 2;
             $d = date('Y', strtotime("-$t1 year"));
