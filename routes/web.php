@@ -30,22 +30,22 @@ use App\Http\Controllers\StatistikController;
 Kunjungan::whereYear('created_at', '<=', date('Y', strtotime('-3 year')))->delete();
 Karyawan::whereYear('created_at', '<=', date('Y', strtotime('-3 year')))->delete();
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->middleware('auth');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
-Route::get('/dashboard/statistik', [StatistikController::class, 'index'])->middleware('auth');
-Route::resource('/dashboard/ruangan', RuanganController::class)->middleware('auth');
-Route::resource('/kunjungan', KunjunganController::class);
-Route::resource('/kunjungan-karyawan', KaryawanController::class);
-Route::resource('/dashboard/karyawan', KaryawanController::class)->middleware('auth');
-Route::resource('/dashboard/kunjungan', KunjunganController::class)->middleware('auth');
-Route::resource('/dashboard/buku-induk', BukuIndukController::class)->middleware('auth');
-Route::post('/dashboard/buku-induk/import', [BukuIndukController::class, 'import_excel'])->middleware('auth');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('admin');
+Route::get('/dashboard/statistik', [StatistikController::class, 'index'])->middleware('admin');
+Route::resource('/dashboard/ruangan', RuanganController::class)->middleware('admin');
+Route::resource('/kunjungan', KunjunganController::class)->middleware('auth');
+Route::resource('/kunjungan-karyawan', KaryawanController::class)->middleware('auth');
+Route::resource('/dashboard/karyawan', KaryawanController::class)->middleware('admin');
+Route::resource('/dashboard/kunjungan', KunjunganController::class)->middleware('admin');
+Route::resource('/dashboard/buku-induk', BukuIndukController::class)->middleware('admin');
+Route::post('/dashboard/buku-induk/import', [BukuIndukController::class, 'import_excel'])->middleware('admin');
 
-Route::get('/dashboard/export', [ExportController::class, 'exportExcel'])->name('exportExcel');
-Route::get('/dashboard/export/excelKaryawan', [ExportController::class, 'exportKaryawanExcel'])->name('exportKaryawanExcel');
-Route::get('/dashboard/export/buku-induk', [ExportController::class, 'exportBukuInduk'])->name('exportBukuInduk');
+Route::get('/dashboard/export', [ExportController::class, 'exportExcel'])->name('exportExcel')->middleware('admin');
+Route::get('/dashboard/export/excelKaryawan', [ExportController::class, 'exportKaryawanExcel'])->name('exportKaryawanExcel')->middleware('admin');
+Route::get('/dashboard/export/buku-induk', [ExportController::class, 'exportBukuInduk'])->name('exportBukuInduk')->middleware('admin');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
