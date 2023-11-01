@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="pagetitle">
-        <h1>Halaman Buku Induk</h1>
+        <h1>Halaman Katalog Buku</h1>
     </div>
 
 

@@ -69,7 +69,7 @@
              <a class="nav-link {{ Request::is('dashboard/buku-induk') ? '' : 'collapsed' }}"
                  href="/dashboard/buku-induk">
                  <i class="bi bi-bar-chart-line"></i>
-                 <span>Buku Induk</span>
+                 <span>Katalog Buku</span>
              </a>
          </li><!-- End Profile Page Nav -->
 
