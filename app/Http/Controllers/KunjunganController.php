@@ -21,6 +21,7 @@ class KunjunganController extends Controller
         $kls8 = Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari', 'sampai']))->kelas(['kelas' => '8'])->get()->sum('jumlah');
         $kls9 = Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari', 'sampai']))->kelas(['kelas' => '9'])->get()->sum('jumlah');
 
+
         return view('dashboard.kunjungan.index', [
             'kls7' => $kls7,
             'kls8' => $kls8,

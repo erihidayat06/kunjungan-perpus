@@ -57,6 +57,7 @@ class Kunjungan extends Model
     public function scopeFiltertanggal($query, array $filters)
     {
 
+
         $query->when($filters['dari'] ?? false, function ($query, $dari) {
             return $query->where('updated_at', ">=", $dari);
         });

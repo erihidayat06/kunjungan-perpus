@@ -10,20 +10,26 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        {{ auth()->user()->name }}
+                        @if (auth()->user())
+                            {{ auth()->user()->name }}
+                        @else
+                            Dashboard
+                        @endif
                     </a>
                     <ul class="dropdown-menu">
-                        @can('admin')
-                            <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
-                        @endcan
-                        <li>
-                            <form action="/logout" method="POST">
-                                @csrf
-                                <button type="submit" class="dropdown-item">
-                                    <i class="bi bi-box-arrow-right"></i>
-                                    <span>Sign Out</span></button>
-                            </form>
-                        </li>
+                        <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+
+                        @if (auth()->user())
+                            <li>
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bi bi-box-arrow-right"></i>
+                                        <span>Sign Out</span></button>
+                                </form>
+                            </li>
+                        @endif
+
 
 
                     </ul>
