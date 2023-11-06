@@ -25,7 +25,7 @@
                                     @csrf
                                     <button type="submit" class="dropdown-item">
                                         <i class="bi bi-box-arrow-right"></i>
-                                        <span>Sign Out</span></button>
+                                        <span>Keluar</span></button>
                                 </form>
                             </li>
                         @endif
