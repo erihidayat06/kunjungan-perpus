@@ -15,10 +15,10 @@
         <form action="/kunjungan" method="post">
             @csrf
             <label class="mt-3 fw-bold" for="nama">Nama</label>
-            <input type="text" value="{{ old('nama') }}" class="form-control" name="nama">
+            <input type="text" value="{{ old('nama') }}" id="nama" class="form-control" name="nama">
 
             <label class="mt-3 fw-bold" for="kelas">Kelas</label>
-            <select class="form-select" aria-label="Default select example" name="ruangan_id">
+            <select class="form-select" aria-label="Default select example" id="kelas" name="ruangan_id">
                 <option selected>Kelas</option>
                 @foreach ($kelass as $kelas)
                     <option value="{{ $kelas->id }}">{{ $kelas->nama_kelas }}</option>
@@ -27,7 +27,7 @@
             </select>
 
             <label class="mt-3 fw-bold" for="tujuan">Tujuan</label>
-            <select class="form-select" aria-label="Default select example" name="tujuan">
+            <select class="form-select" aria-label="Default select example" id="tujuan" name="tujuan">
                 <option selected>Tujuan</option>
                 <option value="baca">Baca</option>
                 <option value="pinjam">Pinjam</option>
@@ -36,7 +36,7 @@
             </select>
 
             <label class="mt-3 fw-bold" for="jumlah">Jumlah Siswa</label>
-            <input type="number" value="1" class="form-control" name="jumlah">
+            <input type="number" value="1" class="form-control" id="jumlah" name="jumlah">
             <div style="font-size: 14px" class="text-danger fw-bold">
                 Note : Jika Berkunjung Satu Kelas isi Perwakilan Saja dan isi Jumlah Siswa
             </div>
@@ -58,8 +58,8 @@
         <h3 class="card-title text-center fw-bold">Form Kunjungan Karyawan/Guru</h3>
         <form action="/kunjungan-karyawan" method="post">
             @csrf
-            <label class="mt-3 fw-bold" for="nama">Nama</label>
-            <input type="text" value="{{ old('nama') }}" class="form-control" name="nama">
+            <label class="mt-3 fw-bold" for="namakaryawan">Nama</label>
+            <input type="text" value="{{ old('nama') }}" id="namakaryawan" class="form-control" name="nama">
 
 
 
@@ -70,8 +70,8 @@
                 <option value="guru">Guru</option>
             </select>
 
-            <label class="mt-3 fw-bold" for="tujuan">Tujuan</label>
-            <input type="text" class="form-control" name="tujuan">
+            <label class="mt-3 fw-bold" for="tujuan1">Tujuan</label>
+            <input type="text" class="form-control" id="tujuan1" name="tujuan">
             <div class="row mt-3 text-center">
                 <div class="col">
                     <button onclick="formKaryawan(this,'none')" class="btn btn-success">kirim</button>

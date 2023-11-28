@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg  bg-success" data-bs-theme="dark">
     <div class="container">
-        <a class="navbar-brand  d-flex align-items-center" href="#">
+        <a class="navbar-brand  d-flex align-items-center" href="/">
             <img src="/assets/img/logo-perpus.png" width="40px" alt="" class="rounded-circle">
             <span class="d-none d-lg-block m-2">Perpustakaan MTs
                 Negeri 1 Tegal</span> </a>
