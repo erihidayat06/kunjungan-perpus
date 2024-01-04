@@ -22,7 +22,7 @@ class HomeController extends Controller
         if (date('m-d') >= date('m-d', strtotime('0000-07-01')) &&  date('m-d') <= date('m-d', strtotime('0000-12-29'))) {
             $s1 = date('Y');
             $s2 = date('Y', strtotime('+1 year'));
-        } elseif (date('m-d') >= date('m-d', strtotime('0000-12-30')) &&  date('m-d') <= date('m-d', strtotime('0000-06-30'))) {
+        } elseif (date('m-d') <= date('m-d', strtotime('0000-12-30')) &&  date('m-d') <= date('m-d', strtotime('0000-06-30'))) {
             $s1 = date('Y', strtotime('-1 year'));
             $s2 = date('Y');
         }
