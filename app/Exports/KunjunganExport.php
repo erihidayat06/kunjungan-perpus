@@ -9,13 +9,13 @@ use Illuminate\Http\Request;
 class KunjunganExport implements FromCollection
 {
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
     public function collection()
     {
         $i = 1;
-        foreach (Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari','sampai']))->get() as $data) {
-            $kunjungan[] = ['no'=> $i++,'nama' => $data->nama, 'tujuan' => $data->tujuan, 'kelas' => $data->ruangan->nama_kelas, 'jumlah' => $data->jumlah];
+        foreach (Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari', 'sampai']))->get() as $data) {
+            $kunjungan[] = ['no' => $i++, 'Tanggal' => date('d F Y', strtotime($data->created_at)), 'Jam' => date('H:i', strtotime($data->created_at)), 'nama' => $data->nama, 'tujuan' => $data->tujuan, 'kelas' => $data->ruangan->nama_kelas, 'jumlah' => $data->jumlah];
         }
 
         if (isset($kunjungan)) {
@@ -24,8 +24,6 @@ class KunjunganExport implements FromCollection
         }
 
 
-        return Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari','sampai']))->get();
-
-
+        return Kunjungan::tanggal(request('filter'))->filtertanggal(request(['dari', 'sampai']))->get();
     }
 }

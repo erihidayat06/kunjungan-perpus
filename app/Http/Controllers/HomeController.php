@@ -33,6 +33,7 @@ class HomeController extends Controller
 
         $dataKunjungan = Kunjungan::filtertanggal(['dari' => $dari, 'sampai' => $sampai])->get()->unique('nama');
 
+        $data = [];
         foreach ($dataKunjungan as $kunjungan) {
             $data[] = ['nama' => $kunjungan->nama, 'kelas' => $kunjungan->ruangan->nama_kelas, 'jumlah' => count(Kunjungan::where('nama', $kunjungan->nama)->get())];
         }
