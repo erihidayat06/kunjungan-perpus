@@ -49,7 +49,7 @@
 
                                                 @include('dashboard.kelas.modaledit')
 
-                                                <form action="/dashboard/kelas/{{ $kelas->id }}" method="POST">
+                                                <form action="/dashboard/ruangan/{{ $kelas->id }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
 
