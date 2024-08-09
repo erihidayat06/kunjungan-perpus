@@ -41,7 +41,7 @@ class HomeController extends Controller
         return view('index', [
             's1' => $s1,
             's2' => $s2,
-            'kelass' => Ruangan::get(),
+            'kelass' => Ruangan::orderBy('kelas', 'asc')->get(),
             'kunjungans' => Kunjungan::get(),
             'peringkats' => collect($data)->sortByDesc('jumlah')
         ]);

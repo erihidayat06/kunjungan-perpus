@@ -14,7 +14,9 @@ class RuanganController extends Controller
     {
         if (request('kelas')) {
             return view('dashboard.kelas.index', [
-                'kelass' => Ruangan::where('kelas', request('kelas'))->get()
+                'kelass' => Ruangan::where('kelas', request('kelas'))
+                    ->orderByDesc('kelas')
+                    ->get()
             ]);
         }
 
